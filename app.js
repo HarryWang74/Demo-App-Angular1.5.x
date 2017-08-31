@@ -20,4 +20,8 @@ angular.module('myApp').component('app', {
 
         };
     }],
+    $routeConfig: [
+        { path: "/", component: "productsList", name: "ProductsList", useAsDefault: true  },
+        { path: "/**", redirectTo: ["ProductsList"] }
+    ],
 });
