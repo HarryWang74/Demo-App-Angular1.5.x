@@ -1,7 +1,7 @@
 angular.module('myApp').component('productsList', {
     templateUrl: "/products/products-list.html",
     controllerAs: "ctrl",
-    controller: [function(){
+    controller: ['productsService', function(productsService){
         var ctrl = this;
         ctrl.products = [
             {
@@ -24,7 +24,15 @@ angular.module('myApp').component('productsList', {
         ctrl.showImage = false;
         ctrl.productFilter="";
         ctrl.$onInit = function () {
-
+            productsService.getProductsInfo().then(
+                function (success) {
+                    ctrl.products = success;
+                    console.log(success);
+                }, 
+                function (error) {
+                    console.log(error);
+                }
+            );
         };
         ctrl.toggleImage = function(){
             ctrl.showImage = !ctrl.showImage;
