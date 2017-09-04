@@ -22,6 +22,7 @@ angular.module('myApp').component('productsList', {
             },
         ]
         ctrl.showImage = false;
+        ctrl.productFilter="";
         ctrl.$onInit = function () {
 
         };
