@@ -11,7 +11,7 @@ angular.module('myApp').config(function($locationProvider) {
 angular.module('myApp').value('$routerRootComponent', 'app')
 
 angular.module('myApp').component('app', {
-    templateUrl: "app.html",
+    templateUrl: "/app.html",
     controllerAs: "ctrl",
     controller: [function(){
         var ctrl = this;
@@ -23,6 +23,7 @@ angular.module('myApp').component('app', {
     $routeConfig: [
         { path: "/", component: "productsList", name: "ProductsList", useAsDefault: true  },
         { path: "/about", component: "about", name: "About" },
+        { path: "/product/:id", component: "productDetail", name: "ProductDetail" },
         { path: "/**", redirectTo: ["ProductsList"] }
     ],
 });

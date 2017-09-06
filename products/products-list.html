@@ -15,7 +15,10 @@
           <div class="card">
             <img class="card-img-top img-fluid" ng-if="ctrl.showImage" src="{{product.imageUrl}}" style="height: 20rem;">
             <div class="card-block">
-              <h4 class="card-title">{{product.productName}}</h4>
+              <h4 class="card-title">
+                  <a ng-link="['ProductDetail', { id: product.productId }]">
+                      {{product.productName}}</h4>
+                  </a>
               <p class="card-text">{{product.price | currency}}</p>
               <rating rating=product.rating productid = product.productId></rating>
             </div>
