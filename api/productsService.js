@@ -27,5 +27,18 @@ angular.module('myApp').factory('productsService', ['$http', '$q', function ($ht
             }); 
         });
     }
+    productsService.getProductDetail = function(id){
+        return $q(function (success, error) {
+            $http.get('/api/' + id + '.json')
+            .success(function (data, status, headers, config) {
+                success(data);
+                console.log(data);
+            })
+            .error(function (data, status, headers, config) {
+                console.log(data)
+                error(data);
+            });
+        });
+    }
     return productsService;
 }]);
